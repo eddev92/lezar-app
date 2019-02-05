@@ -5,6 +5,7 @@
 }
 .main-content {
     margin-top: 50px;
+    padding-right: 15px;
 }
 table, th, td {
     border: 1px solid black;

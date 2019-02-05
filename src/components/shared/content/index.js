@@ -20,8 +20,8 @@ const ContentComponent = ({ optionSelected = 0, valueFiltered = '', travelsLoade
                 <input type="text" value={valueFiltered} onChange={handleValue} />
                 <div className="table-content row">
                 <table className="table-responsive">
-                    <tbody>
-                        <tr>
+                    <thead>
+                        <tr className="header">
                             <th>Destino</th>
                             <th>Fecha de salida</th>
                             <th>Conductor</th>
@@ -29,6 +29,8 @@ const ContentComponent = ({ optionSelected = 0, valueFiltered = '', travelsLoade
                             <th>Saldo</th>
                             <th>Inspeccionar</th>
                         </tr>
+                    </thead>       
+                    <tbody>                                         
                         {travelsLoaded && TRAVELS.length
                         ?
                         TRAVELS.map((travel, index) => (
