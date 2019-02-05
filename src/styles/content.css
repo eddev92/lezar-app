@@ -1,0 +1,15 @@
+.main-content h1 {
+    margin: auto 150px;
+    padding: 70px;
+    border: 1px solid #bbb;
+}
+.main-content {
+    margin-top: 100px;
+}
+table, th, td {
+    border: 1px solid black;
+  }
+table {
+    margin: 50px auto;
+    width: 60%;
+}
