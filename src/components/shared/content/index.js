@@ -17,8 +17,9 @@ const ContentComponent = ({ optionSelected = 0, valueFiltered = '', travelsLoade
                     <option>Conductor</option>
                     <option>Placa</option>
                 </select>
-            <input type="text" value={valueFiltered} onChange={handleValue}/>
-                <table>
+                <input type="text" value={valueFiltered} onChange={handleValue} />
+                <div className="table-content row">
+                <table className="table-responsive">
                     <tbody>
                         <tr>
                             <th>Destino</th>
@@ -36,14 +37,15 @@ const ContentComponent = ({ optionSelected = 0, valueFiltered = '', travelsLoade
                                 <td>{travel.dateTravel}</td>
                                 <td>{travel.driver}</td>
                                 <td>{travel.plate}</td>
-                                <td>{travel.amount}</td>
-                                <td onClick={handleTravel.bind(this, travel)}>Click aquí</td>
+                                <td>{`S/.${travel.amount}`}</td>
+                                <td style={{cursor:'pointer'}} onClick={handleTravel.bind(this, travel)}>Click aquí</td>
                             </tr>
                         ))
                         : null
                     }                    
                     </tbody>                    
                 </table>
+                </div>
             </div>
             }
         </div>
