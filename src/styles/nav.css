@@ -1,0 +1,16 @@
+.main-nav {
+    border: 1px solid black;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin: auto;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.42), 0 2px 4px 0 rgba(0,0,0,0.08);
+}
+.main-nav .row {
+    padding: 5px;
+    margin: 10px;
+}
+.main-nav .options {
+    border-left: 1px solid black;
+}
+.session-out {
+    cursor: pointer;
+}

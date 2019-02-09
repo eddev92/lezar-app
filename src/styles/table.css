@@ -1,0 +1,35 @@
+.main-table {
+    max-height: 520px;
+    margin: 35px auto;
+}
+table {
+    width: 100%;
+}
+tr {
+    border-bottom: 2px solid #e5e5e5;
+    display: table; /* display purpose; th's border */
+  width: 100%;
+}
+td {
+    text-align: center;
+    border-bottom: none;
+    border-left: none;
+  }
+thead {
+    display: table;
+    width: 100%;
+}
+tbody {
+    display: block;
+    max-height: 400px;
+    overflow-y: scroll;
+    border-bottom: 1px solid #e5e5e5;
+}
+th, td {
+    word-break: break-all;
+    font-size: 0.75em;
+    /* width: 25%; */
+}
+tbody div {
+    font-size: 1.2em;
+}

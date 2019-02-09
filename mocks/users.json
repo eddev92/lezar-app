@@ -1,0 +1,32 @@
+[
+    {
+        "userName": "47572293",
+        "firstName": "Luis",
+        "secondName": "Enrique",
+        "firstLastName": "Llanca",
+        "secondLastName": "Haro",
+        "roles": {
+            "rol": "ADMIN"
+        }
+    },
+    {
+        "userName": "02458745",
+        "firstName": "Howard",
+        "secondName": "Tommy", 
+        "firstLastName": "Llanca",
+        "secondLastName": "Haro",
+        "roles": {
+            "rol": "ASSISTANT"
+        }
+    },
+    {
+        "userName": "01254378",
+        "firstName": "Linus",
+        "secondName": "Alejandro",
+        "firstLastName": "Llanca",
+        "secondLastName": "Guerrero",
+        "roles": {
+            "rol": "EXECUTIVE"
+        }
+    }
+]
