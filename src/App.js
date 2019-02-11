@@ -31,9 +31,12 @@ class App extends Component {
       auth: {},
       userInfo: {},
       userLoaded: {},
-      openModal: false
+      openModal: false,
+      travelSelected: {},
+      openModalNotification: false
     }
   }
+
   componentDidMount() {
     token = localStorageConfig.getToken('token');
     userNameAux = localStorageConfig.getToken('userName');
@@ -42,11 +45,13 @@ class App extends Component {
       this.getUser({userName: userNameAux, token: token})
     }
   }
+
   componentDidUpdate() {
     if (this.state.auth.token !== '') {
      token = localStorageConfig.getToken('token');
     }
   }
+
   getUser(user) {
     const api = new ChallengeGbm();
         api.getUser(user)
@@ -54,25 +59,30 @@ class App extends Component {
           this.setState({userInfo: response})
       })
   }
-loadData = () => {
-const api = new ChallengeGbm();
 
-api.getData()
-  .then((response) => {
-      init = 1;
-      this.setState({ data: response }, () => {
-        this.resetValue();
-      })
-  })
-  .catch((error) => {
-      init = 2;
-    return console.log('error', error)
-  });
-}
+  loadData = () => {
+  const api = new ChallengeGbm();
+
+  api.getData()
+    .then((response) => {
+        init = 1;
+        this.setState({ data: response }, () => {
+          this.resetValue();
+        })
+    })
+    .catch((error) => {
+        init = 2;
+      return console.log('error', error)
+    });
+  }
   
+  handleTravel = () => {
+
+}
   resetValue = () => {    
     this.setState({ dashboardActive: false })
   }
+
   validateUser = () => {
     const { user } = this.state;
     const reset = {
@@ -107,6 +117,7 @@ api.getData()
       this.setState({ user: auxUser });
     }
   }
+
   handleUser = (user, value) => {
     if (value === 1) {
       return this.setState({ userLoaded: user })      
@@ -115,6 +126,7 @@ api.getData()
         this.setState({ userInfo: user })
     }
   }
+
   handleFinishSession = () => {
     const reset = {
       userName: '',
@@ -124,24 +136,24 @@ api.getData()
     localStorageConfig.removeToken('userName');
     window.location.reload()
     this.setState({isValid: false, dashboardActive: false, user: reset })
-
   }
+
   toggleModal = () => {
     const { openModal } = this.state;
-
-    this.setState({ openModal: !openModal })
+    this.setState({ openModal: !openModal });
   }
+
   render() {
     const { isValid, dashboardActive, data, user, auth, userInfo, userLoaded, openModal } = this.state;
     return (
       <div className="App" style={{backgroundImage: `url(${ROUTE_IMG_BACKGROUND})`}}>
-      {(isValid || token) && <NavComponent user={userInfo ? userInfo : userLoaded} token={token} handleFinishSession={this.handleFinishSession}/>}
-      <Login validateUser={this.validateUser} isValid={isValid} user={user} handleChange={this.handleChange} token={token}/>
-      <Dashboard dashboardActive={dashboardActive} isValid={isValid} data={data} auth={auth} userInfo={userInfo} handleUser={this.handleUser} token={token} userNameAux={userNameAux} toggleModal={this.toggleModal}/>
-      <ModalComponent openModal={openModal} toggleModal={this.toggleModal} >
-        HOLI =D
-      </ModalComponent>
-    </div>
+        {(isValid || token) && <NavComponent user={userInfo ? userInfo : userLoaded} token={token} handleFinishSession={this.handleFinishSession}/>}
+        <Login validateUser={this.validateUser} isValid={isValid} user={user} handleChange={this.handleChange} token={token}/>
+        <Dashboard dashboardActive={dashboardActive} isValid={isValid} data={data} auth={auth} userInfo={userInfo} handleUser={this.handleUser} token={token} userNameAux={userNameAux} toggleModal={this.toggleModal} />
+        <ModalComponent openModal={openModal} toggleModal={this.toggleModal} >
+        <iframe width="100%" height="600" src="https://app.powerbi.com/view?r=eyJrIjoiYjQzYWQ5OGEtYzkwZS00ZDU1LWI4NWEtNjY0NDlhYjM1Y2QyIiwidCI6IjUyNzg5OTljLTc0ZmUtNDI5NS05M2Q1LThhYmQ0NjYxYjFjMyIsImMiOjR9" frameborder="0" allowFullScreen="true" />       
+        </ModalComponent>
+      </div>
     )
     
   }

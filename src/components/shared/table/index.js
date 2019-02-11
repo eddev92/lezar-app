@@ -2,7 +2,7 @@ import React from 'react';
 import RowComponent from './row';
 import '../../../styles/table.css';
 
-const TableComponent = ({ headerTitles = [], data }) => {
+const TableComponent = ({ headerTitles = [], data, handleTravel = () => {} }) => {
 
         return (
             <div className="main-table table-responsive">
@@ -15,7 +15,7 @@ const TableComponent = ({ headerTitles = [], data }) => {
                 <tbody>
                 {
                     data.map((elmt, index) => (
-                        <RowComponent element={elmt} key={index}/>
+                        <RowComponent element={elmt} key={index} handleTravel={handleTravel} />
                     ))
                 }
                     </tbody>

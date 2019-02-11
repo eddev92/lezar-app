@@ -14,3 +14,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.select-item {
+  cursor: pointer;
+}
+
+@media (min-width: 992px) {
+    .modal .modal-fluid {
+      width: 100%;
+      max-width: 100%;
+  }
+}
+@media (min-width: 576px) {
+  .modal-dialog {
+    max-width: 100%;
+    margin: 1.75rem auto;
+  }
+}

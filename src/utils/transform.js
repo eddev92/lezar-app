@@ -24,7 +24,10 @@ class TransformData {
         const dateFormated = obj.Fecha.length && CustomDate.getSimpleDateFormatMin(obj.Fecha);
         return [
             {
-                label: dateFormated
+                label: 'DASD'
+            },
+            {
+                label: obj.Volumen
             },
             {
                 label: obj.Porcentaje
@@ -43,15 +46,6 @@ class TransformData {
             },
             {
                 label: obj.Volumen
-            },
-            {
-                label: obj.Volumen
-            },
-            {
-                label: obj.Volumen
-            },
-            {
-                label: 'Seleccionar'
             }
         ];
     }

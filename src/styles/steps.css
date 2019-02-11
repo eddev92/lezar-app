@@ -12,6 +12,10 @@
     margin: 0px 37px;
     cursor: pointer;
 }
+.progressbar li:hover {
+    color:red;
+    transition: 0.4s ease-out all;
+}
 .progressbar li {
     list-style-type: none;
     width: 18%;

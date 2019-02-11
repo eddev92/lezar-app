@@ -13,7 +13,6 @@ class Dashboard extends Component {
                 resultObj: [],
                 msg: 'Ok'
             },
-            travelSelected: {},
             user: {},            
             isLogged: props.isValid,
             userInfo: props.userInfo,
@@ -63,26 +62,26 @@ class Dashboard extends Component {
     }
     render() {
         const { isValid, data = [], token, toggleModal = () => {} } = this.props;
-        const { valueToFilter, listFiltered, travelSelected } = this.state;
-        const header = ['PLACA', 'INGRESO', 'SUELDO', 'COND. TRABAJO', 'VIÁTICOS', 'CONSUMOS', 'COMBUSTIBLE', 'DEPRECIACIÖN', 'UTILIDAD BRUTA', 'INSPECCIONAR'];
+        const { valueToFilter, listFiltered } = this.state;
+        const header = ['PLACA', 'INGRESO', 'SUELDO', 'COND. TRABAJO', 'VIÁTICOS', 'CONSUMOS', 'COMBUSTIBLE', 'UTILIDAD BRUTA'];
         const list = listFiltered.length ? listFiltered :  data.resultObj;
 
         return (
             <div className="row">
-                { (data && data.resultObj.length > 0)  && <StepsComponent travelSelected={travelSelected} toggleModal={toggleModal}/> }
+                { (data && data.resultObj.length > 0)  && <StepsComponent toggleModal={toggleModal}/> }
                 <div className={(isValid || token) ? 'main-dashboard col-10 isLoged' : 'main-dashboard col-10'} >
                 <div className="form-group">
                     <select className="form-control col-md-4" id="type" onChange={this.handleValueToFilter.bind(valueToFilter.type)} value={valueToFilter.type}>
                         <option value="Default">Seleccione</option>
-                        <option value="Volumen">Volumen</option>
+                        <option value="Volumen">Placa</option>
                         <option value="Precio">Precio</option>
                     </select>
-                    <input type="email" id="key" className="form-control col-md-6 mail-user" onChange={this.handleValueToFilter.bind(valueToFilter.key)} value={valueToFilter.key} placeholder="Ingrese volumen" />
+                    <input type="email" id="key" className="form-control col-md-6 mail-user" onChange={this.handleValueToFilter.bind(valueToFilter.key)} value={valueToFilter.key} placeholder="Campo requerido" />
                     <button type="submit" className="btn btn-primary" onClick={this.filterList}>Buscar</button>
                 </div>
                     {(data && data.resultObj.length > 0) 
                     ?
-                        <TableComponent headerTitles={header} data={list}/>
+                        <TableComponent headerTitles={header} data={list} handleTravel={this.handleTravel} />
                     :
                     <div className="empty">
                         <span>

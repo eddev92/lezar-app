@@ -3,18 +3,16 @@ import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalF
 
 class ModalComponent extends Component {
 render() {
-    const { toggleModal = () => {}, openModal, children, travelSelected = {} } = this.props;
-
+    const { toggleModal = () => {}, openModal, children, fullHeight = true } = this.props;
   return (
     <MDBContainer>
-      <MDBModal isOpen={openModal} toggle={toggleModal} size="lg">
-        <MDBModalHeader toggle={toggleModal}>MDBModal title</MDBModalHeader>
+      <MDBModal isOpen={openModal} toggle={toggleModal} size="fluid">
+        <MDBModalHeader toggle={toggleModal}>MOLICAL - INGRESO</MDBModalHeader>
         <MDBModalBody>
           {children}
         </MDBModalBody>
         <MDBModalFooter>
-          <MDBBtn color="secondary" onClick={toggleModal}>Close</MDBBtn>
-          <MDBBtn color="primary">Save changes</MDBBtn>
+            <MDBBtn color="secondary" style={{margin: 'auto'}} onClick={toggleModal}>CERRAR</MDBBtn>
         </MDBModalFooter>
       </MDBModal>
     </MDBContainer>

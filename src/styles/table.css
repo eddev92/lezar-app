@@ -28,6 +28,8 @@ tbody {
 th, td {
     word-break: break-all;
     font-size: 0.75em;
+    padding: 8px 17px 8px 7px;
+    width: 10%;
     /* width: 25%; */
 }
 tbody div {
